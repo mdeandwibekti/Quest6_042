@@ -35,7 +35,7 @@ import com.example.quest6_042.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormIsian(
-    jenisK: List<String> ,
+    pilihanK: List<String> ,
     OnSubmitButtonClicked : (MutableList<String>) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -69,6 +69,29 @@ fun FormIsian(
                 onValueChange = {
                     txtNama = it}
             )
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .width(250.dp), thickness = 1.dp, color = Color.Red
+            )
+            Row {
+                pilihanK.forEach { item ->
+                    Row(modifier = Modifier.selectable(
+                        selected = txtGender == item,
+                        onClick = {
+                            txtGender = item
+                        }
+                    ),
+                        verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = txtGender == item,
+                            onClick = {
+                                txtGender = item }
+                        )
+                        Text(text = item)
+                    }
+                }
+            }
 
     }
 }
