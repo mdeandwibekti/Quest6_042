@@ -53,6 +53,24 @@ fun TampilanData(
         ) {
 
             // DATA DETAIL
-            i
-    }
+            items.forEach { (label, value) ->
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    Text(
+                        text = label.uppercase(),
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Text(
+                        text = value,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 22.sp,
+                        fontFamily = androidx.compose.ui.text.font.FontFamily.Cursive
+                    )
+                }
+                HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
+            }
+
+
 }
