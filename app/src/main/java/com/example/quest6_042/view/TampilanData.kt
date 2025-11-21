@@ -43,6 +43,16 @@ fun TampilanData(
                 )
             )
         }
-    ) {
+    ) { paddingValues ->
+
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp)
+        ) {
+
+            // DATA DETAIL
+            i
     }
 }
