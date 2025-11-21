@@ -29,10 +29,37 @@ fun DataApp(
 ){
     Scaffold { isiRuang ->
 
+        val uiState = viewModel.statusUI.collectAsState()
         NavHost(
             navController = navController,
             startDestination = Navigasi.Formulir.name,
             modifier = Modifier.padding(isiRuang)
         ) {
 
+            composable(route = Navigasi.Formulir.name) {
+                val konteks = LocalContext.current
+                FormIsian (
+                    pilihanK =JenisK.map {id -> konteks.resources.getString(id)},
+                    OnSubmitButtonClicked = {
+                        viewModel.setSiswa(it)
+                        navController.navigate(Navigasi.Detail.name)
+                    }
+                )
+            }
 
+            composable(route = Navigasi.Detail.name) {
+                TampilanData (
+                    statusUiSiswa = uiState.value,
+                    onBackBtnClick = {
+                        cancelAndBackToFormulir(navController)
+                    }
+                )
+            }
+        }
+    }
+}
+
+private fun cancelAndBackToFormulir(navController: NavHostController
+) {
+    navController.popBackStack(Navigasi.Formulir.name, inclusive = false)
+}
