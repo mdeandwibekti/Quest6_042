@@ -7,6 +7,6 @@
     <string name="alamat">Alamat</string>
     <string name="tampil">Tampilan Data</string>
     <string name="home">Form Isian</string>
-    <string name="laki">jenisK</string>
-    <string name="wanita">jenisK</string>
+    <string name="laki">laki laki</string>
+    <string name="wanita">wanita</string>
 </resources>

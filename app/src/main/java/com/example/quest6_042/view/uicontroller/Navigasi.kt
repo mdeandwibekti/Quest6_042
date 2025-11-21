@@ -26,5 +26,13 @@ fun DataApp(
     modifier: Modifier,
     viewModel: SiswaViewModel = viewModel (),
     navController: NavHostController = rememberNavController()
-) {
-}
+){
+    Scaffold { isiRuang ->
+
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Formulir.name,
+            modifier = Modifier.padding(isiRuang)
+        ) {
+
+
